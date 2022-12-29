@@ -26,8 +26,8 @@ public class SignupController {
 	}
 
 	@RequestMapping(value="/register")
-	public String getResposePage(@ModelAttribute("user") StudentUser user) {
-	    if(registrationService.registerUser(user)) {
+	public String getResposePage(@ModelAttribute("user") StudentUser studentUser) {
+	    if(registrationService.registerUser(studentUser.getUserName(),studentUser.getLocation())) {
 	    	return "success";
 	    }else {
 	    	return "signup";

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.registration.domain.StudentUser;
 
-@Component
+@Repository
 public class StudentUserDAO implements DAO<StudentUser>{
 	private List<StudentUser> studentUserList = new ArrayList<>();
     
