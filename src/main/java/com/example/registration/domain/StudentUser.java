@@ -1,16 +1,21 @@
 package com.example.registration.domain;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.example.registration.repository.DAO;
+
+
 @Component
-public class StudetUser implements User {
+public class StudentUser implements User {
+	@Autowired
+	DAO<StudentUser> studentDAO;
 	String userName;
 	String location;
 	Integer userId;
 	
-	public StudetUser() {
-		this.userId = (int) (Math.random()*100);
-	}
+//	public StudetUser() {
+//		this.userId = (int) (Math.random()*100);
+//	}
 	
 	public String getUserName() {
 		return userName;
@@ -43,7 +48,9 @@ public class StudetUser implements User {
 
 	@Override
 	public Boolean saveUserDetails() {
-		if(userName!=null && location!=null && userId!=null ) {
+		System.out.println(userName);
+		if(userName!=null && location!=null) {
+//			studentDAO.get(0);
 			System.out.println("new user added"+this.userName+this.location+this.userId);
 			return true;
 		}

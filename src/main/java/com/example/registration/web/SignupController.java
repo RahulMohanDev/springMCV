@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.example.registration.domain.StudetUser;
+import com.example.registration.domain.StudentUser;
 import com.example.registration.domain.User;
 import com.example.registration.service.RegistrationService;
 
@@ -26,7 +26,7 @@ public class SignupController {
 	}
 
 	@RequestMapping(value="/register")
-	public String getResposePage(@ModelAttribute("user") StudetUser user) {
+	public String getResposePage(@ModelAttribute("user") StudentUser user) {
 	    if(registrationService.registerUser(user)) {
 	    	return "success";
 	    }else {

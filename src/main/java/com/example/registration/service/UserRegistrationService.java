@@ -9,16 +9,16 @@ import com.example.registration.domain.User;
 public class UserRegistrationService implements RegistrationService {
 	
 	@Autowired
-	User StudnetUser;
+	User studentUser;
 
 	@Override
 	public Boolean registerUser(User user) {
-		return StudnetUser.saveUserDetails();
+		return user.saveUserDetails();
 	}
 
 	@Override
 	public User getNewStudentUser() {
-		return StudnetUser;
+		return studentUser;
 	}
 
 }
