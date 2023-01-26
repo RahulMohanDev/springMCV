@@ -13,26 +13,25 @@ import com.example.registration.service.RegistrationService;
 
 @Controller
 public class SignupController {
-	
+
 	@Autowired
 	RegistrationService registrationService;
-	
-	
-	@RequestMapping(value = "/signup",method =RequestMethod.GET )
+
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String getSignupPage(Model registrationFormModle) {
 		User user = registrationService.getNewStudentUser();
-		registrationFormModle.addAttribute("user", user);		
+		registrationFormModle.addAttribute("user", user);
 		return "signup";
 	}
 
-	@RequestMapping(value="/registerUser")
+	@RequestMapping(value = "/registerUser")
 	public String getResposePage(@ModelAttribute("user") StudentUser studentUser) {
-		System.out.println(studentUser.getGender());
-	    if(registrationService.registerUser(studentUser.getUserName(),studentUser.getLocation(),studentUser.getGender())) {
-	    	return "success";
-	    }else {
-	    	return "signup";
-	    } 
+		if (registrationService.registerUser(studentUser.getUserName(), studentUser.getLocation(),
+				studentUser.getGender())) {
+			return "success";
+		} else {
+			return "signup";
+		}
 	}
 
 }

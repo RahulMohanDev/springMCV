@@ -20,7 +20,6 @@ public class UserRegistrationService implements RegistrationService {
 	@Override
 	public Boolean registerUser(String userName, String location, String gender) {
 		studentUser.createUser(userName, location,gender);
-		System.out.println(studentUser.saveUserDetails());
 		return studentUser.saveUserDetails();
 	}
 
