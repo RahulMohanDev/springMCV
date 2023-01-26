@@ -49,18 +49,20 @@ public class StudentUser implements User {
 	@Override
 	public Boolean saveUserDetails() {
 		System.out.println(location);
-		if (userName != null && location != null) {
+		if (userName != null && location != null && gender!= null) {
 			studentDAO.save(this);
-			System.out.println("new user added" + this.userName + this.location + this.userId);
+			System.out.println("new user added" + this.userName + this.location + this.userId + this.gender);
 			return true;
 		} else
 			return false;
 	}
 
 	@Override
-	public void createUser(String userName, String location) {
+	public void createUser(String userName, String location, String gender) {
 		this.setUserName(userName);
-		this.setLocation(location);		
+		this.setLocation(location);	
+		this.setGender(gender);	
 	}
+
 
 }

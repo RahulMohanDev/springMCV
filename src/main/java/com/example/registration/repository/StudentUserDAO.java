@@ -15,7 +15,9 @@ public class StudentUserDAO implements DAO<StudentUser>{
     
 	@Override
 	public Optional<StudentUser> get(Integer id) {
-		return Optional.ofNullable(studentUserList.get(id));
+		if(!studentUserList.isEmpty())
+			return Optional.of(studentUserList.get(id));
+		return Optional.empty();
 	}
 
 	@Override

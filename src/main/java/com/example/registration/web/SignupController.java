@@ -19,15 +19,16 @@ public class SignupController {
 	
 	
 	@RequestMapping(value = "/signup",method =RequestMethod.GET )
-	public String getSignupPage(Model studentModel) {
+	public String getSignupPage(Model registrationFormModle) {
 		User user = registrationService.getNewStudentUser();
-		studentModel.addAttribute("user", user);		
+		registrationFormModle.addAttribute("user", user);		
 		return "signup";
 	}
 
-	@RequestMapping(value="/register")
+	@RequestMapping(value="/registerUser")
 	public String getResposePage(@ModelAttribute("user") StudentUser studentUser) {
-	    if(registrationService.registerUser(studentUser.getUserName(),studentUser.getLocation())) {
+		System.out.println(studentUser.getGender());
+	    if(registrationService.registerUser(studentUser.getUserName(),studentUser.getLocation(),studentUser.getGender())) {
 	    	return "success";
 	    }else {
 	    	return "signup";
