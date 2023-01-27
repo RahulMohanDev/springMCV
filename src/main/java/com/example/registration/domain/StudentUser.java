@@ -47,13 +47,13 @@ public class StudentUser implements User {
 	}
 
 	@Override
-	public Boolean saveUserDetails() {
+	public int saveUserDetails() {
 		if (userName != null && location != null && gender!= null) {
-			studentDAO.save(this);
-			System.out.println("new user added" + this.userName + this.location + this.userId + this.gender);
-			return true;
+			int studnetId = studentDAO.save(this);
+			System.out.println("new user added" + this.userName + this.location + this.userId + this.gender+" "+studnetId);
+			return studnetId;
 		} else
-			return false;
+			return -1;
 	}
 
 	@Override

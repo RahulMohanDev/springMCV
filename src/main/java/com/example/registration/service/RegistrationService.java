@@ -3,6 +3,6 @@ package com.example.registration.service;
 import com.example.registration.domain.User;
 
 public interface RegistrationService {
-	public Boolean registerUser(String userName,String location,String gender);
+	public int registerUser(String userName,String location,String gender);
 	public User getNewStudentUser();
 }

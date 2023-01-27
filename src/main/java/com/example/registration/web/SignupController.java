@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.registration.domain.StudentUser;
 import com.example.registration.domain.User;
@@ -26,12 +29,19 @@ public class SignupController {
 
 	@RequestMapping(value = "/registerUser")
 	public String getResposePage(@ModelAttribute("user") StudentUser studentUser) {
-		if (registrationService.registerUser(studentUser.getUserName(), studentUser.getLocation(),
-				studentUser.getGender())) {
-			return "success";
+		int studentId = registrationService.registerUser(studentUser.getUserName(), studentUser.getLocation(),
+				studentUser.getGender());
+		if (studentId!=-1) {
+			ModelAndView modelAndView = new ModelAndView("redirect:success?id="+studentId);
+			return modelAndView.getViewName();
 		} else {
 			return "signup";
 		}
+	}
+	
+	@RequestMapping(value="/success")
+	public String getSuccessPage(@RequestParam String id) {
+		return "success";
 	}
 
 }

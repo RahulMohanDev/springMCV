@@ -8,7 +8,7 @@ import com.example.registration.domain.User;
 
 @Service
 public class UserRegistrationService implements RegistrationService {
-	
+
 	@Autowired
 	User studentUser;
 
@@ -18,8 +18,8 @@ public class UserRegistrationService implements RegistrationService {
 	}
 
 	@Override
-	public Boolean registerUser(String userName, String location, String gender) {
-		studentUser.createUser(userName, location,gender);
+	public int registerUser(String userName, String location, String gender) {
+		studentUser.createUser(userName, location, gender);
 		return studentUser.saveUserDetails();
 	}
 
