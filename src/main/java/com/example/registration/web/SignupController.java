@@ -20,7 +20,7 @@ public class SignupController {
 	@Autowired
 	RegistrationService registrationService;
 
-	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	@RequestMapping(value = "/signup")
 	public String getSignupPage(Model registrationFormModle) {
 		User user = registrationService.getNewStudentUser();
 		registrationFormModle.addAttribute("user", user);
