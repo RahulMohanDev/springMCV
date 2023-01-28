@@ -5,7 +5,7 @@ spring:
   active: "dev"
  mvc:
   view:
-   prefix: "WEB-INF/jsp/"
+   prefix: "/WEB-INF/jsp/"
    suffix: ".jsp"
 server:
  port: 8083

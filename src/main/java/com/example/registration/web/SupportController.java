@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class SupportController {
 	
-	@RequestMapping(value = "/support", method = RequestMethod.GET)
+	@RequestMapping(value = "/support")
 	public String getSupportPage(@RequestParam String id,ModelMap model) {
-		model.addAttribute("message","welcome user "+id );
+		model.addAttribute("message","welcome user "+id);
 		return "support";
 	}
 
